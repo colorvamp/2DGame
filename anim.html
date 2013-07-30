@@ -1,0 +1,29 @@
+<html>
+<head>
+	<script type='text/javascript' src="http://sombraencounter.com/testing/coreJS/coreJS.js"></script>
+	<script type='text/javascript'>
+		var VAR_animLimit = 4;
+		function animate(){
+			var a = $_('anim');
+			if(a.firstChild != a.lastChild){return;}
+			var i = a.firstChild;
+			var num = i.src.match(/[0-9]+/);
+			if(!a.inverse){num++;}else{num--;}
+			if(num > VAR_animLimit){num -= 2;a.inverse = true;};
+			if(num < 0){num += 2;a.inverse = false;}
+			var src = i.src.replace(/[0-9]+\.png$/,num+'.png');
+			var n = $C('IMG',{'src':src,'.opacity':0},a);
+			eFadein(n,false,10);
+			eFadeout(i,function(el){el.parentNode.removeChild(el);},30);
+		}
+	</script>
+	<style>
+		#anim{margin:100px;width:70px;height:100px;position:relative;}
+		#anim > img{top:0;left:0;width:70px;height:100px;position:absolute;}
+		#anim > img:last-child{z-index:2;}
+	</style>
+</head>
+<body onload='window.setInterval(animate,800);'>
+	<div id='anim'><img src='xcf/mov_link/link_small0.png'/></div>
+</body>
+</html>

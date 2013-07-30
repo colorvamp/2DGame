@@ -1,0 +1,7 @@
+
+#mapElements{position:absolute;height:100%;width:100%;}
+#mapElements > img{position:absolute;}
+
+#mobileControls{position:fixed;bottom:40px;right:40px;z-index:20000;background:URL(../images/cross.png);}
+#mobileControls > ul{margin:0;padding:0;}
+#mobileControls > ul > li{list-style:none;margin:0;padding:0;display:inline-block;height:42px;width:41px;border:1px solid transparent;}
